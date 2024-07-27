@@ -1,3 +1,4 @@
+require('dotenv').config()
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -9,7 +10,7 @@ const flash = require('connect-flash');
 // const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
 
-const MONGODB_URI = 'mongodb+srv://Cluster35452:XWZLb25mb3dW@cluster35452.wud4trz.mongodb.net/shop?w=majority&appName=Cluster35452';
+const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster35452.wud4trz.mongodb.net/shop?w=majority&appName=${process.env.MONGODB_APPNAME}`;
 
 const app = express();
 const store = new mongoDbStore({
@@ -31,7 +32,7 @@ const errorController = require('./controllers/errors');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: 'eSSY5Bb4B37i', 
+    secret: `${process.env.SESSION_SECRET}`, 
     resave: false, 
     saveUninitialized: false, 
     store: store

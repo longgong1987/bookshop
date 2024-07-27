@@ -57,7 +57,7 @@ sequelize
     return User.findByPk(1);
 }).then(user => {
     if (!user){
-        return User.create({name: 'ToRo', email: 'toro@toto.com'});
+        return User.create({name: 'XXXX', email: 'xxx@xxxx.com'});
     }
     return user;
 })

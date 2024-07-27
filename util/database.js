@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
@@ -5,7 +6,7 @@ let mgDb;
 
 const mongoConnect = (callback) => {
 
-    MongoClient.connect('mongodb+srv://Cluster35452:XWZLb25mb3dW@cluster35452.wud4trz.mongodb.net/shop?retryWrites=true&w=majority&appName=Cluster35452')
+    MongoClient.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster35452.wud4trz.mongodb.net/shop?retryWrites=true&w=majority&appName=${process.env.MONGODB_APPNAME}`)
     .then(client => {
         console.log('MongoDB Connected!');
         mgDb = client.db();
