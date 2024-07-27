@@ -6,7 +6,7 @@ let mgDb;
 
 const mongoConnect = (callback) => {
 
-    MongoClient.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster35452.wud4trz.mongodb.net/shop?retryWrites=true&w=majority&appName=${process.env.MONGODB_APPNAME}`)
+    MongoClient.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster35452.wud4trz.mongodb.net/${process.env.MONGODB_COLLECTION_NAME}?retryWrites=true&w=majority&appName=${process.env.MONGODB_APPNAME}`)
     .then(client => {
         console.log('MongoDB Connected!');
         mgDb = client.db();

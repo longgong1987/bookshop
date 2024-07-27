@@ -10,7 +10,7 @@ const flash = require('connect-flash');
 // const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
 
-const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster35452.wud4trz.mongodb.net/shop?w=majority&appName=${process.env.MONGODB_APPNAME}`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster35452.wud4trz.mongodb.net/${process.env.MONGODB_COLLECTION_NAME}?w=majority&appName=${process.env.MONGODB_APPNAME}`;
 
 const app = express();
 const store = new mongoDbStore({
