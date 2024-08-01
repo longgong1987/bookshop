@@ -67,3 +67,7 @@ gatsby-config.ts
 
 # DynamoDB Local files
 .dynamodb/
+
+# local images upload directory
+/images
+/data/invoices
